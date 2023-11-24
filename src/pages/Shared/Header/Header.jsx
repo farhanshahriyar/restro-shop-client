@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { AuthContext } from '../../../providers/AuthProvider'
 import Swal from 'sweetalert2'
 import useCart from '../../../hooks/useCart'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   const {user, logOut} = useContext(AuthContext);
@@ -44,7 +45,8 @@ const Header = () => {
               <a className="font-medium text-white hover:text-white sm:py-6" href="/menu">Our Menu</a>
               <a className="font-medium text-white hover:text-white sm:py-6" href="/order/salad">Order Food</a>
               <a className="font-medium text-white hover:text-white sm:py-6" href="/contact-us">Contact</a>
-              <a className="font-medium text-white hover:text-white sm:py-6" href="/cart">Cart</a>
+              {/* <a className="font-medium text-white hover:text-white sm:py-6" href="/cart">Cart</a> */}
+              <Link to='/dashboard/carts'>
               <button type="button" className="bg-opacity-30 m-1 ms-0 relative flex justify-center items-center h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm  hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
               <svg className="flex-shrink-0 w-4 h-4 bg-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m5 11 4-7"/><path d="m19 11-4-7"/><path d="M2 11h20"/><path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4"/><path d="m9 11 1 9"/><path d="M4.5 15.5h15"/><path d="m15 11-1 9"/>
               </svg>
@@ -56,6 +58,7 @@ const Header = () => {
                 </span>
 
             </button>
+            </Link>
 
               
               {user ? (
