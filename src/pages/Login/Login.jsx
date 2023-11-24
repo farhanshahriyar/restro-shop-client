@@ -8,14 +8,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
-  // const {signIn, googleSignIn} = useContext(AuthContext)
   const navigate = useNavigate();
-  // const [registerError, setRegisterError] = useState(''); 
   // const [user, setUser] = useState(null)
   const captchaRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
-  // const form = location.state?.from?.pathname || '/'
-
   const {user, loading, createUser, signIn, googleSignIn} = useContext(AuthContext)
 
 
@@ -24,33 +20,28 @@ const Login = () => {
     loadCaptchaEnginge(6);
   }, [])
 
-  // google sign in functionalities
   const handleGoogleSignIn = (e) => {
     e.preventDefault();
-    // googleSignIn()
-    // .then((result) => {
-    //   // console.log(result.user)
-    //   const user = result.user;
-    //   setUser(user);
-    //   Swal.fire({
-    //     icon: 'success',
-    //     title: 'Login Successful',
-    //     text: 'You are logged in successfully!',
-    //   });
-    //   navigate('/')
-    // })
-    // .catch((error) => {
-    //   const errorCode = error.code;
-    //   const errorMessage = error.message;
-    //   // console.log(errorCode, errorMessage)
-    //   Swal.fire({
-    //     icon: 'error',
-    //     title: 'Oops...',
-    //     text: errorMessage,
-    //   });
-    //   setRegisterError(error.message);
-    // });
-  }
+    googleSignIn()
+    .then((result) => {
+        // User is signed in
+        // Toast Showing
+        Swal.fire({
+            icon: 'success',
+            title: 'Login Successful',
+            text: 'You are logged in successfully!',
+        });
+        navigate('/');
+    })
+    .catch((error) => {
+        // Handle errors here
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error.message,
+        });
+    });
+}
 
   const handleLogin = (e) => {
     e.preventDefault();

@@ -7,7 +7,9 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
+    const googleProvider = new GoogleAuthProvider();
     const [loading, setLoading] = useState(true);
+
 
     // create user // signUp
     const createUser = (email, password) => {
@@ -28,12 +30,12 @@ const AuthProvider = ({children}) => {
         return signOut(auth);
     }
 
-    // login with google 
-      // google sign in functionalities
-      const googleSignIn = async () => {
+     // google sign in functionalities
+     const googleSignIn = async () => {
         setLoading(true)
-        return signInWithPopup(auth, GoogleAuthProvider)
+        return signInWithPopup(auth, googleProvider)
     }
+    
 
     // image manual update functionalities
     const updateUser = async (name, image) => {
