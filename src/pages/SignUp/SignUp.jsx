@@ -8,9 +8,10 @@ import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const navigate = useNavigate();
-    const {  register,handleSubmit,watch, formState: { errors },} = useForm();
+    const [registerError, setRegisterError] = useState(''); 
+    const {  register,handleSubmit,watch, reset, formState: { errors },} = useForm();
      // data connection with backend
-     const {createUser, googleSignIn} = useContext(AuthContext)
+     const {createUser,updateUser, googleSignIn} = useContext(AuthContext)
     const onSubmit = (data) => {
       if (!data['remember-me']) {
         alert("You must accept the terms and conditions to sign up.");
@@ -21,7 +22,28 @@ const SignUp = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser)
+        updateUser(data.username, data.photoURL)
+        .then(() => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Sign Up Successful',
+            text: 'You are signed up successfully!',
+          });
+          navigate('/');
+        })
+        .catch((error) => {
+          console.log(error)
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error.message,
+          })
+        })
       })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire("Error", error.message, "error");
+      });
     }
 
       // State to manage password visibility
@@ -62,6 +84,10 @@ const SignUp = () => {
                 title: 'Oops...',
                 text: error.message,
             });
+        })
+        .catch((error) => {
+          console.log(error);
+          Swal.fire("Error", error.message, "error");
         });
     }
       
@@ -233,6 +259,28 @@ const SignUp = () => {
 
                               <div className="relative col-span-full">
                             <div className="relative">
+                                <input type='text' {...register("photoURL", { required: true})} className="peer p-4 block w-full border-gray-200 rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
+                                focus:pt-6
+                                focus:pb-2
+                                [&:not(:placeholder-shown)]:pt-6
+                                [&:not(:placeholder-shown)]:pb-2
+                                autofill:pt-6
+                                autofill:pb-2" placeholder="Enter your photoURL"/>
+                                {errors.photoURL?.type === 'required' && <span className='text-red-500 text-sm'> *PhotoURL is must required</span>}
+                              
+                                <label className="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                                peer-focus:text-xs
+                                peer-focus:-translate-y-1.5
+                                peer-focus:text-gray-500
+                                peer-[:not(:placeholder-shown)]:text-xs
+                                peer-[:not(:placeholder-shown)]:-translate-y-1.5
+                                peer-[:not(:placeholder-shown)]:text-gray-500">Photo URL</label>
+                               
+                            </div>
+                        </div>
+
+                        <div className="relative col-span-full">
+                            <div className="relative">
                                 <input type={showPassword ? "text" : "password"} {...register("password", { required: true,
                                 minLength: 6, 
                                 maxLength: 20,
@@ -307,13 +355,16 @@ const SignUp = () => {
 
 
                             <div className="mt-5">
-                              <input type="submit" className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" value='Get started'/>
+                              <input type="submit" className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 cursor-pointer" value='Get started'/>
                             </div>
                           </div>
+                          
                         </div>
 
                       </div>
+                      
                     </form>
+                    
 
                   </div>
 
