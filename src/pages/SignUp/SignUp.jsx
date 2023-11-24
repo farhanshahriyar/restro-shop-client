@@ -102,7 +102,7 @@ const SignUp = () => {
 
                 <div className="grid items-center md:grid-cols-2 gap-8 lg:gap-12">
                   <div>
-                    <p className="inline-block text-sm font-medium bg-clip-text bg-gradient-to-l from-blue-600 to-violet-500 text-transparent dark:from-blue-400 dark:to-violet-400">
+                    <p className="inline-block text-sm font-medium bg-clip-text bg-gradient-to-l from-[#153E3D] to-violet-500 text-transparent dark:from-blue-400 dark:to-violet-400">
                       Restro. a healthy food restraurant for you.
                     </p>
 
@@ -154,7 +154,7 @@ const SignUp = () => {
                             <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                               Already have an account?
                               <Link to='/login'>
-                                <a className="text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="">
+                                <a className="text-[#153E3D] decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="">
                                   Login in here
                                 </a>
                               </Link>
@@ -345,17 +345,17 @@ const SignUp = () => {
 
                             <div className="mt-5 flex items-center">
                                 <div className="flex">
-                                    <input id="remember-me" {...register("remember-me", { required: true })} type="checkbox" className="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"/>
+                                    <input id="remember-me" {...register("remember-me", { required: true })} type="checkbox" className="shrink-0 mt-0.5 border-gray-200 rounded text-[#153E3D] focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"/>
                                 </div>
                                 <div className="ms-3">
-                                    <label htmlFor="remember-me" className="text-sm dark:text-white cursor-pointer">I accept the <a className="text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">Terms and Conditions</a></label>
+                                    <label htmlFor="remember-me" className="text-sm dark:text-white cursor-pointer">I accept the <a className="text-[#153E3D] decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">Terms and Conditions</a></label>
                                 </div>
                                 {errors['remember-me'] && <span className='text-red-500 text-sm'> *You must accept the terms and conditions</span>}
                             </div>
 
 
                             <div className="mt-5">
-                              <input type="submit" className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 cursor-pointer" value='Get started'/>
+                              <input type="submit" className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-[#153E3D] text-white hover:bg-[#BDC6C5]disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 cursor-pointer" value='Get started'/>
                             </div>
                           </div>
                           
@@ -373,7 +373,7 @@ const SignUp = () => {
 
 
                 <div className="mt-6 md:mt-12 py-3 flex items-center text-sm text-gray-800 gap-x-1.5 after:flex-[1_1_0%] after:border-t after:border-gray-200 after:ms-6 dark:text-white dark:after:border-gray-700">
-                  <span className="font-semibold bg-clip-text bg-gradient-to-l from-blue-600 to-violet-500 text-transparent dark:from-blue-400 dark:to-violet-400">50,000</span>
+                  <span className="font-semibold bg-clip-text bg-gradient-to-l from-[#153E3D] to-violet-500 text-transparent dark:from-blue-400 dark:to-violet-400">50,000</span>
                   individuals and group of people trust Restro. shop for their food.
                 </div>
 

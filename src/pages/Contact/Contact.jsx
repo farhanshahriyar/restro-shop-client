@@ -119,7 +119,7 @@ const Contact = () => {
 
 
                 <div className="mt-6 grid">
-                <button type="submit" className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Send inquiry</button>
+                <button type="submit" className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-[#153E3D] text-white hover:bg-[#BDC6C5]disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Send inquiry</button>
                 </div>
 
                 <div className="mt-3 text-center">
@@ -139,7 +139,7 @@ const Contact = () => {
             <div className="mt-5">
                 <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">PHONE</h3>
                 <p className="mt-1 text-gray-500">+38 (012) 34 56 789</p>
-                <p className="mt-5 inline-flex items-center gap-x-1 font-medium text-blue-600 dark:text-blue-500">
+                <p className="mt-5 inline-flex items-center gap-x-1 font-medium text-[#153E3D] dark:text-blue-500">
                 Contact support
                 <svg className="flex-shrink-0 w-4 h-4 transition ease-in-out group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </p>
@@ -151,7 +151,7 @@ const Contact = () => {
             <div className="mt-5">
                 <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">ADDRESS</h3>
                 <p className="mt-1 text-gray-500">+38 (012) 34 56 789.</p>
-                <p className="mt-5 inline-flex items-center gap-x-1 font-medium text-blue-600 dark:text-blue-500">
+                <p className="mt-5 inline-flex items-center gap-x-1 font-medium text-[#153E3D] dark:text-blue-500">
                 Visit Address
                 <svg className="flex-shrink-0 w-4 h-4 transition ease-in-out group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </p>
@@ -164,7 +164,7 @@ const Contact = () => {
                 <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">WORKING HOURS</h3>
                 <p className="mt-1 text-gray-500">Mon - Fri: 08:00 - 22:00
         Sat - Sun: 10:00 - 23:00</p>
-                <p className="mt-5 inline-flex items-center gap-x-1 font-medium text-blue-600 dark:text-blue-500">
+                <p className="mt-5 inline-flex items-center gap-x-1 font-medium text-[#153E3D] dark:text-blue-500">
                 Contact Office
                 <svg className="flex-shrink-0 w-4 h-4 transition ease-in-out group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </p>

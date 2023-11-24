@@ -89,7 +89,7 @@ const Login = () => {
             <div className="md:pe-8 md:w-1/2 xl:pe-0 xl:w-5/12">
 
               <h1 className="text-3xl text-gray-800 font-bold md:text-4xl md:leading-tight lg:text-3xl lg:leading-tight dark:text-gray-200">
-                <span className="text-blue-600 dark:text-blue-500">Restro</span> is here to help. Eat what makes you happy.
+                <span className="text-[#153E3D] dark:text-blue-500">Restro</span> is here to help. Eat what makes you happy.
               </h1>
               <p className="mt-3 text-base text-gray-500">
                 Restro is selling happiness in the form of food. We are here to help you to find the best food for you.
@@ -130,12 +130,12 @@ const Login = () => {
                 </div>
 
                 <div className="grid">
-                  <button disabled={disabled} type="submit" className="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Sign up</button>
+                  <button disabled={disabled} type="submit" className="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-[#153E3D] text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Sign up</button>
                 </div>
               </form>
               <p className="mt-3 text-base text-gray-500">
                 <Link to ="/sign-up">
-                Don't have an account? <a  className="text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Sign up</a>
+                Don't have an account? <a  className="text-[#153E3D] decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Sign up</a>
                 </Link>
               </p>
             </div>
