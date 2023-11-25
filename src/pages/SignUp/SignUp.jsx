@@ -5,8 +5,10 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const SignUp = () => {
+    const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();
     const [registerError, setRegisterError] = useState(''); 
     const {  register,handleSubmit,watch, reset, formState: { errors },} = useForm();
@@ -17,34 +19,42 @@ const SignUp = () => {
         alert("You must accept the terms and conditions to sign up.");
         return;
       }
-      console.log(data)
+      // console.log(data)
       createUser(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser)
         updateUser(data.username, data.photoURL)
         .then(() => {
-          Swal.fire({
-            icon: 'success',
-            title: 'Sign Up Successful',
-            text: 'You are signed up successfully!',
-          });
-          navigate('/');
-        })
-        .catch((error) => {
-          console.log(error)
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: error.message,
+          // create user entry in the database
+          const userInfo = {
+            name: data.username,
+            email: data.email,
+          }
+          axiosPublic.post('/users', userInfo)
+          .then((res)=>{
+            if(res.data.insertedId){
+              console.log('user added' , res.data)
+              Swal.fire({
+                icon: 'success',
+                title: 'Sign Up Successful',
+                text: 'You are signed up successfully!',
+                timer: 2000,
+              });
+              navigate('/');
+            }
           })
         })
+        .catch((error) => {
+          console.log(error);
+          Swal.fire("Error", error.message, "error");
+        });
       })
       .catch((error) => {
         console.log(error);
         Swal.fire("Error", error.message, "error");
       });
-    }
+    };
 
       // State to manage password visibility
       const [showPassword, setShowPassword] = useState(false);
@@ -69,14 +79,21 @@ const SignUp = () => {
         googleSignIn()
         .then((result) => {
             // User is signed in
-            // Toast showing
-            Swal.fire({
-                icon: 'success',
-                title: 'Login Successful',
-                text: 'You are logged in successfully!',
+            const userInfo = {
+              email: result.user?.email,
+              name: result.user?.displayName,
+            };
+            axiosPublic.post("/users", userInfo).then((res) => {
+              console.log(res.data); // user created
+              // Toast Showing
+              Swal.fire({
+                icon: "success",
+                title: "Login Successful",
+                text: "You are logged in successfully!",
+              });
+              navigate("/");
             });
-            navigate('/');
-        })
+          })
         .catch((error) => {
             // Handle errors here
             Swal.fire({
